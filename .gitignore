@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.env
+
+# MySQL Data (Very Important!)
+# Isse tumhara local database ka data GitHub par nahi jayega
+mysql_data/
+
+# IDEs
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+creditcard.csv

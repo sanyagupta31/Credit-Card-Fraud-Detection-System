@@ -1,41 +1,34 @@
-# 💳 Credit Card Fraud Detection System
+🛡️ Fraud Guard AI: End-to-End MLOps Pipeline
+This project features a robust Credit Card Fraud Detection System built not just as a standalone machine learning model, but as a fully Automated Production Pipeline. It automates every stage of the lifecycle—from data versioning to cloud-ready deployment.
 
-An end-to-end Machine Learning solution to detect fraudulent credit card transactions in real-time. This project demonstrates high-performance API development and multi-container orchestration.
+🚀 Key Features & Tools
+Model Tracking (MLflow): All experiments, parameters, and hyperparameter tuning were meticulously tracked. The model achieved a high performance of 99.94% accuracy.
 
-## 🚀 Project Overview
-* **ML Model:** Trained on a highly imbalanced dataset to identify fraud with high precision.
-* **Backend:** Built using **FastAPI** for high-speed asynchronous processing.
-* **Database:** **MySQL** used to store transaction logs and prediction history.
-* **Orchestration:** Managed using **Docker Compose** to run the API and Database as separate services.
+Data Versioning (DVC): Large datasets (143MB) are managed outside of Git using DVC, ensuring a lightweight and efficient repository.
 
-## 🛠️ Tech Stack
-* **Language:** Python 3.9
-* **Framework:** FastAPI
-* **ML Libraries:** Scikit-learn, Pandas, Numpy, Imbalanced-learn
-* **Database:** MySQL 8.0
-* **Containerization:** Docker & Docker Compose
+CI/CD Pipeline (GitHub Actions): Every code push triggers an automated testing and container build process to ensure system integrity.
 
-## 📦 How to Run
-Since this is a multi-container application, we use Docker Compose:
+Containerization (Docker): The entire environment is containerized to eliminate the "it works on my machine" problem, making it deployable anywhere.
 
-1.  **Clone the Repository:**
-    ```bash
-    git clone [https://github.com/SanyaGupta31/Credit-Card-Fraud-Detection.git](https://github.com/SanyaGupta31/Credit-Card-Fraud-Detection.git)
-    cd Credit-Card-Fraud-Detection
-    ```
+Interactive UI (Streamlit): A sleek, user-friendly web interface for real-time transaction fraud checks.
 
-2.  **Start the Services:**
-    ```bash
-    docker-compose up --build
-    ```
+🏗️ Architecture
+Ingestion: Data is securely pulled and version-tracked using DVC.
 
-3.  **Access the API:**
-    * API Documentation (Swagger UI): `http://localhost:8000/docs`
-    * The application will automatically connect to the MySQL database container.
+Training: The model training pipeline is logged and managed via MLflow.
 
-## 🏗️ Architecture
-The system consists of two main services:
-1.  **FastAPI Service:** Handles prediction requests and communicates with the model.
-2.  **MySQL Service:** Stores transaction data for future auditing and retraining.
+CI/CD: GitHub Actions verify the code and build a fresh Docker image on every commit.
 
----
+Deployment: The image is automatically pushed to Docker Hub (sanya860/credit-card-fraud) for production-ready access.
+
+🛠️ How to Run Locally
+No local Python environment or dependencies are required. You only need Docker installed:
+
+Bash
+
+# Pull the image from Docker Hub
+docker pull sanya860/credit-card-fraud:latest
+
+# Run the container
+docker run -p 8501:8501 sanya860/credit-card-fraud:latest
+Once running, open your browser and go to http://localhost:8501 to use the application!

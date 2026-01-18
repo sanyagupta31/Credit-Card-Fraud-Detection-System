@@ -25,11 +25,10 @@ jobs:
 
     - name: Run Model Training Test
       run: |
-        # Yahan hum check karenge ki kya script bina crash hue chalti hai
-        # Abhi ke liye hum sirf ek simple test run kar rahe hain
         python -c "print('CI Pipeline working successfully!')"
-    deploy:
-    needs: build-and-test # Pehle test pass hona chahiye
+
+  deploy:
+    needs: build-and-test
     runs-on: ubuntu-latest
     steps:
     - name: Checkout Code
@@ -43,5 +42,5 @@ jobs:
 
     - name: Build and Push Docker Image
       run: |
-        docker build -t your-docker-id/credit-card-fraud:latest .
-        docker push your-docker-id/credit-card-fraud:latest
+        docker build -t sanya860/credit-card-fraud:latest .
+        docker push sanya860/credit-card-fraud:latest
